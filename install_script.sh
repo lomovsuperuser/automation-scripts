@@ -1,19 +1,25 @@
-#ghp_dAoYJ0BvrhpiJ8iXg7Pzg86w5DqD4B1PxdU://habr.com/ru/post/54649/ ! /bin/bash
+#! /bin/bash
 
 #install work soft
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        # ...
-apt-get install vim
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then 
+    RELISE=`cat /etc/*-release| tr "\n" " "`
 
-apt-get install emacs
+    for name in 'UBUNTU' 'DEBIAN'
+    do
+            name_os=`$RELISE | grep -i -q $name`
+    done
+    
+    if  [[ $name_os == "UBUNTU"  $name_os == "DEBIAN" ]]; then
+        apt-get install vim
 
-apt-get install tmux
+        apt-get install emacs
 
-apt-get install git
+        apt-get install tmux
 
-apt-get install links
+        apt-get install git
 
-apt-get install telegram-cli
+        apt-get install links
+
+        apt-get install telegram-cli
 
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-        # ...
