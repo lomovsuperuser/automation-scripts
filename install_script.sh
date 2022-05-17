@@ -1,12 +1,12 @@
 #! /bin/bash
 
-#install work soft
+#iws.sh(install work soft)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then 
-    RELISE=`cat /etc/*-release| tr "\n" " "`
+    RELISE=`cat /etc/*-release|tr "\n" " "`
 
     for name in 'UBUNTU' 'DEBIAN' 'Fedora' 'ARCH'
     do
-            name_os=`$RELISE | grep -i -q $name`
+        name_os=`$RELISE|grep -i -q $name`
     done
     
     if  [[ $name_os == "UBUNTU" || $name_os == "DEBIAN" ]]; then
