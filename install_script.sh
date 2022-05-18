@@ -3,10 +3,10 @@
 #iws.sh(install work soft)
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then 
     RELISE=`cat /etc/*-release|tr "\n" " "`
-
+    
     for name in 'UBUNTU' 'DEBIAN' 'Fedora' 'ARCH'
     do
-        name_os=`$RELISE|grep -i -q $name`
+        echo $RELISE | grep -i -q $name && name_os=$name
     done
     
     if  [[ $name_os == "UBUNTU" || $name_os == "DEBIAN" ]]; then
@@ -21,7 +21,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         apt-get install mc
 
         apt-get install fish
+        exit 0
     elif [[ $name_os == "Fedora" ]]; then
+        echo "Your operating system -- Fedora"
+
         dnf install vim
 
         dnf install emacs
@@ -33,6 +36,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         dnf install mc
 
         dnf install fish
+
+        exit 0
     elif [[ $name_os == "ARCH" ]]; then
 
         pacman -S vim
@@ -47,7 +52,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
         pacman -S fish
     fi
-
+     exit 0
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
 
     echo "..."
