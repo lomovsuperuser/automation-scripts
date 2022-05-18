@@ -4,12 +4,16 @@
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then 
     RELISE=`cat /etc/*-release|tr "\n" " "`
     
-    for name in 'UBUNTU' 'DEBIAN' 'Fedora' 'ARCH'
+    for name in 'Debian' 'Ubuntu' 'Fedora' 'Arch'
     do
         echo $RELISE | grep -i -q $name && name_os=$name
     done
     
-    if  [[ $name_os == "UBUNTU" || $name_os == "DEBIAN" ]]; then
+    if  [[ $name_os == "Debian" || $name_os == "Ubuntu" ]]; then
+        echo "Your operating system is based on Debian"
+
+        apt-get update
+
         apt-get install vim
 
         apt-get install emacs
@@ -21,9 +25,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         apt-get install mc
 
         apt-get install fish
+
         exit 0
     elif [[ $name_os == "Fedora" ]]; then
         echo "Your operating system -- Fedora"
+
+        dnf update
 
         dnf install vim
 
