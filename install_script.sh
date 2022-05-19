@@ -30,7 +30,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     elif [[ $name_os == "Fedora" ]]; then
         echo "Your operating system -- Fedora"
 
-        dnf update
+        dnf update --assumeno
 
         dnf install vim
 
@@ -61,11 +61,23 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     fi
      exit 0
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
+ 
+        pkg update
 
-    echo "..."
+        pkg install vim
+
+        pkg install emacs
+
+        pkg install tmux
+
+        pkg install git
+
+        pkg install mc
+
+        pkg install fish
 
 fi
-
+exit 0
 
 
 
