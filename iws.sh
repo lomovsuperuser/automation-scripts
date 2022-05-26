@@ -15,8 +15,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         apt-get update
 
         apt-get install vim
-
+        #here you need to download .vimrc with "https://github.com /lomovsuperuser/vimrc " and paste it ~/%username%
+        
         apt-get install emacs
+        #here you need to download .emacs and init.el from "https://github.com/lomovsuperuser/emacs " and paste it ~/%username%/ and ~/%username%/emacs/
 
         apt-get install tmux
 
